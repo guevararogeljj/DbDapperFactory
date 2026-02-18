@@ -2,6 +2,8 @@
 
 Factory + extensiones de DI para crear `DbConnection` nombradas y usarlas con Dapper.
 
+> ⚠️ **MIGRACIÓN**: Los paquetes `DbDapperFactory.Core`, `DbDapperFactory.SqlServer`, `DbDapperFactory.Postgres`, `DbDapperFactory.MySql`, `DbDapperFactory.Sqlite` y `DbDapperFactory.Oracle` han sido **consolidados** en un único paquete `DbDapperFactory`. Por favor, migra a este paquete único para recibir actualizaciones futuras.
+
 ## ¿Qué es DbDapperFactory?
 
 **DbDapperFactory** es una librería que facilita la integración de múltiples bases de datos en aplicaciones .NET usando **Dapper** como ORM ligero. Proporciona:
@@ -192,4 +194,45 @@ builder.Services.AddOracle(
 ## Licencia
 
 Este proyecto está bajo licencia MIT.
+
+## Migración desde versiones antiguas
+
+Si estabas usando los paquetes individuales (`DbDapperFactory.Core`, `DbDapperFactory.SqlServer`, etc.), sigue estos pasos para migrar:
+
+### Paso 1: Desinstala los paquetes antiguos
+
+```bash
+dotnet remove package DbDapperFactory.Core
+dotnet remove package DbDapperFactory.SqlServer
+dotnet remove package DbDapperFactory.Postgres
+dotnet remove package DbDapperFactory.MySql
+dotnet remove package DbDapperFactory.Sqlite
+dotnet remove package DbDapperFactory.Oracle
+```
+
+### Paso 2: Instala el paquete único
+
+```bash
+dotnet add package DbDapperFactory
+```
+
+### Paso 3: Sin cambios de código necesarios
+
+El código existente seguirá funcionando sin modificaciones. Los namespaces y las APIs son idénticas:
+
+```csharp
+using DbDapperFactory; // ✅ Sigue siendo igual
+
+builder.Services
+    .AddDapperConnectionFactory()
+    .AddSqlServer("Main", connectionString)
+    .AddPostgres("Reporting", connectionString);
+```
+
+### Por qué consolidamos
+
+- ✅ **Más simple**: Un solo paquete en lugar de 6
+- ✅ **Versioning único**: Todas las funcionalidades se versionan juntas
+- ✅ **Mantenimiento**: Código más fácil de mantener
+- ✅ **Actualizaciones**: Recibe todas las mejoras en un solo paquete
 

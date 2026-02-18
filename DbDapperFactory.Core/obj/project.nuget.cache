@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "mbYlnWK7VJQ=",
+  "success": true,
+  "projectFilePath": "/Users/jeronimoguevararogel/RiderProjects/DbDapperFactory/DbDapperFactory.Core/DbDapperFactory.Core.csproj",
+  "expectedPackageFiles": [
+    "/Users/jeronimoguevararogel/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.3/microsoft.extensions.dependencyinjection.abstractions.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.options/10.0.3/microsoft.extensions.options.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.primitives/10.0.3/microsoft.extensions.primitives.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.netcore.app.ref/8.0.16/microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.16/microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

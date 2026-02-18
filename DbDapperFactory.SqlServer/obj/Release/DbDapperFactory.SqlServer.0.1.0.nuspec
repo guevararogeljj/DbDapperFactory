@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DbDapperFactory.SqlServer</id>
+    <version>0.1.0</version>
+    <authors>YOUR_NAME</authors>
+    <readme>README.md</readme>
+    <description>SQL Server provider for DbDapperFactory (Microsoft.Data.SqlClient).</description>
+    <tags>dapper sqlserver sqlclient dbconnection factory di</tags>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="DbDapperFactory.Core" version="0.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Data.SqlClient" version="6.1.4" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/Users/jeronimoguevararogel/RiderProjects/DbDapperFactory/DbDapperFactory.SqlServer/bin/Release/net8.0/DbDapperFactory.SqlServer.dll" target="lib/net8.0/DbDapperFactory.SqlServer.dll" />
+    <file src="/Users/jeronimoguevararogel/RiderProjects/DbDapperFactory/DbDapperFactory.SqlServer/bin/Release/net8.0/DbDapperFactory.SqlServer.xml" target="lib/net8.0/DbDapperFactory.SqlServer.xml" />
+    <file src="/Users/jeronimoguevararogel/RiderProjects/DbDapperFactory/README.md" target="/README.md" />
+  </files>
+</package>

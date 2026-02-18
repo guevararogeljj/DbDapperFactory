@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "L+pnvvdz5E8=",
+  "success": true,
+  "projectFilePath": "/Users/jeronimoguevararogel/RiderProjects/DbDapperFactory/DbDapperFactory.Sqlite/DbDapperFactory.Sqlite.csproj",
+  "expectedPackageFiles": [
+    "/Users/jeronimoguevararogel/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.data.sqlite/10.0.3/microsoft.data.sqlite.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.data.sqlite.core/10.0.3/microsoft.data.sqlite.core.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.3/microsoft.extensions.dependencyinjection.abstractions.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.options/10.0.3/microsoft.extensions.options.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.primitives/10.0.3/microsoft.extensions.primitives.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.11/sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/sqlitepclraw.core/2.1.11/sqlitepclraw.core.2.1.11.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.11/sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.11/sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.netcore.app.ref/8.0.16/microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.16/microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

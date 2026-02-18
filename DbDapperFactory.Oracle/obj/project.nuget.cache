@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "F1tZjh/68bo=",
+  "success": true,
+  "projectFilePath": "/Users/jeronimoguevararogel/RiderProjects/DbDapperFactory/DbDapperFactory.Oracle/DbDapperFactory.Oracle.csproj",
+  "expectedPackageFiles": [
+    "/Users/jeronimoguevararogel/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.3/microsoft.extensions.dependencyinjection.abstractions.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.options/10.0.3/microsoft.extensions.options.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.extensions.primitives/10.0.3/microsoft.extensions.primitives.10.0.3.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/oracle.manageddataaccess.core/23.26.100/oracle.manageddataaccess.core.23.26.100.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.configuration.configurationmanager/8.0.0/system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.diagnostics.eventlog/8.0.0/system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.diagnostics.performancecounter/8.0.0/system.diagnostics.performancecounter.8.0.0.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.directoryservices.protocols/8.0.2/system.directoryservices.protocols.8.0.2.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.formats.asn1/8.0.1/system.formats.asn1.8.0.1.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.memory/4.6.0/system.memory.4.6.0.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.security.cryptography.pkcs/8.0.1/system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/system.security.cryptography.protecteddata/8.0.0/system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.netcore.app.ref/8.0.16/microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
+    "/Users/jeronimoguevararogel/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.16/microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

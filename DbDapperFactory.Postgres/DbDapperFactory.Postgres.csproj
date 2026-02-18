@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>DbDapperFactory.Postgres</PackageId>
+    <Description>PostgreSQL provider for DbDapperFactory (Npgsql).</Description>
+    <PackageTags>dapper;postgres;postgresql;npgsql;dbconnection;factory;di</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DbDapperFactory.Core\DbDapperFactory.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="10.0.1" />
+  </ItemGroup>
+
+</Project>

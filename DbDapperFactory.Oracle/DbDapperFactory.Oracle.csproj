@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>DbDapperFactory.Oracle</PackageId>
+    <Description>Oracle provider for DbDapperFactory (Oracle.ManagedDataAccess.Core).</Description>
+    <PackageTags>dapper;oracle;odp.net;dbconnection;factory;di</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DbDapperFactory.Core\DbDapperFactory.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.26.100" />
+  </ItemGroup>
+
+</Project>

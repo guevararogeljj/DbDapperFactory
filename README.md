@@ -4,24 +4,19 @@ Factory + extensiones de DI para crear `DbConnection` nombradas y usarlas con Da
 
 ## ¿Qué es DbDapperFactory?
 
-**DbDapperFactory** es un conjunto de librerías que facilita la integración de múltiples bases de datos en aplicaciones .NET usando **Dapper** como ORM ligero. Proporciona:
+**DbDapperFactory** es una librería que facilita la integración de múltiples bases de datos en aplicaciones .NET usando **Dapper** como ORM ligero. Proporciona:
 
 - 🏭 **Factory de conexiones nombradas**: Define múltiples conexiones a diferentes bases de datos y accede a ellas por nombre.
 - 📦 **Inyección de dependencias (DI)**: Integración nativa con `Microsoft.Extensions.DependencyInjection`.
-- 🗄️ **Soporte multi-proveedor**: SqlServer, PostgreSQL, MySQL, SQLite, Oracle.
+- 🗄️ **Soporte multi-proveedor integrado**: SqlServer, PostgreSQL, MySQL, SQLite, Oracle - todo en un solo paquete.
 - 🔌 **Simple y ligero**: Minimal overhead, máximo control sobre las conexiones.
 
 ## Instalación
 
-Instala el paquete **Core** y el/los paquetes del proveedor que vayas a usar:
+Instala el único paquete **DbDapperFactory** que incluye soporte para todos los proveedores de bases de datos:
 
 ```bash
-dotnet add package DbDapperFactory.Core
-dotnet add package DbDapperFactory.SqlServer
-dotnet add package DbDapperFactory.Postgres
-dotnet add package DbDapperFactory.MySql
-dotnet add package DbDapperFactory.Sqlite
-dotnet add package DbDapperFactory.Oracle
+dotnet add package DbDapperFactory
 ```
 
 O desde NuGet Package Manager.
@@ -98,9 +93,11 @@ public class User
 
 ### Múltiples bases de datos
 
+Con un único paquete `DbDapperFactory`, puedes usar todos los proveedores simultáneamente:
+
 ```csharp
-// Configuración
-services
+// Configuración - todo en un solo paquete
+builder.Services
     .AddDapperConnectionFactory()
     .AddSqlServer("Main", "Server=localhost;Database=MyApp;...")
     .AddPostgres("Analytics", "Host=localhost;Database=Analytics;...")
@@ -135,7 +132,7 @@ public class ReportingService
 
 ```csharp
 // SQL Server con opciones
-services
+builder.Services
     .AddDapperConnectionFactory()
     .AddSqlServer(
         "Main",
@@ -146,14 +143,24 @@ services
         });
 
 // PostgreSQL
-services.AddPostgres(
+builder.Services.AddPostgres(
     "Reporting",
     "Host=localhost;Database=Analytics;...");
 
+// MySQL
+builder.Services.AddMySql(
+    "Users",
+    "Server=localhost;Database=UsersDb;...");
+
 // SQLite
-services.AddSqlite(
+builder.Services.AddSqlite(
     "Cache",
     "Data Source=cache.db;");
+
+// Oracle
+builder.Services.AddOracle(
+    "Legacy",
+    "Data Source=OracleDB;User Id=user;Password=pass;");
 ```
 
 ## Notas Importantes
@@ -167,9 +174,22 @@ services.AddSqlite(
 
 | Característica | Detalles |
 |---|---|
+| **Un solo paquete** | Todo incluido - SqlServer, PostgreSQL, MySQL, SQLite, Oracle |
 | **Inyección de Dependencias** | Integrada con `IServiceCollection` |
 | **Conexiones Nombradas** | Define múltiples conexiones y accede por nombre |
-| **Multi-Proveedor** | SqlServer, PostgreSQL, MySQL, SQLite, Oracle |
 | **Async/Await** | Compatible con operaciones asincrónicas |
 | **Dapper Integration** | Funciona perfectamente con Dapper |
 | **Lightweight** | Minimal, sin dependencias pesadas |
+
+## Proveedores Soportados
+
+✅ **SQL Server** - `AddSqlServer()`  
+✅ **PostgreSQL** - `AddPostgres()`  
+✅ **MySQL** - `AddMySql()`  
+✅ **SQLite** - `AddSqlite()`  
+✅ **Oracle** - `AddOracle()`  
+
+## Licencia
+
+Este proyecto está bajo licencia MIT.
+

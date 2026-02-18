@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DbDapperFactory.Core/DbDapperFactory.Core.csproj" />
+    <Project Path="src/DbDapperFactory.MySql/DbDapperFactory.MySql.csproj" />
+    <Project Path="src/DbDapperFactory.Oracle/DbDapperFactory.Oracle.csproj" />
+    <Project Path="src/DbDapperFactory.PostgreSql/DbDapperFactory.PostgreSql.csproj" />
+    <Project Path="src/DbDapperFactory.SQLite/DbDapperFactory.SQLite.csproj" />
+    <Project Path="src/DbDapperFactory.SqlServer/DbDapperFactory.SqlServer.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DbDapperFactory.Tests/DbDapperFactory.Tests.csproj" />
+  </Folder>
+</Solution>

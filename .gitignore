@@ -23,13 +23,16 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Archivos compilados
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
-artifacts/
-
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
@@ -52,3 +55,27 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.iml
+
+# Rider / IntelliJ
+.idea/
+*.sln.iml
+.idea/*.xml
+.idea/*.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+
+# Temporales
+*.tmp
+*.temp

@@ -1,15 +1,16 @@
+using System.Data.Common;
 using DbDapperFactory;
-using Oracle.ManagedDataAccess.Client;
+using MySqlConnector;
 
-namespace DbDapperFactory;
+namespace DbDapperFactory.Providers;
 
-public static class DapperConnectionFactoryBuilderExtensions
+public static class MySqlExtensions
 {
-    public static IDapperConnectionFactoryBuilder AddOracle(
+    public static IDapperConnectionFactoryBuilder AddMySql(
         this IDapperConnectionFactoryBuilder builder,
         string name,
         string connectionString,
-        Action<OracleConnection>? configure = null)
+        Action<MySqlConnection>? configure = null)
     {
         ArgumentNullException.ThrowIfNull(builder);
         if (string.IsNullOrWhiteSpace(connectionString))
@@ -19,9 +20,10 @@ public static class DapperConnectionFactoryBuilderExtensions
 
         return builder.Add(name, _ =>
         {
-            var conn = new OracleConnection(connectionString);
+            var conn = new MySqlConnection(connectionString);
             configure?.Invoke(conn);
             return conn;
         });
     }
 }
+

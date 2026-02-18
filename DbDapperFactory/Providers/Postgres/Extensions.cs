@@ -1,9 +1,10 @@
+using System.Data.Common;
 using DbDapperFactory;
 using Npgsql;
 
-namespace DbDapperFactory;
+namespace DbDapperFactory.Providers;
 
-public static class DapperConnectionFactoryBuilderExtensions
+public static class PostgresExtensions
 {
     public static IDapperConnectionFactoryBuilder AddPostgres(
         this IDapperConnectionFactoryBuilder builder,
@@ -25,3 +26,4 @@ public static class DapperConnectionFactoryBuilderExtensions
         });
     }
 }
+

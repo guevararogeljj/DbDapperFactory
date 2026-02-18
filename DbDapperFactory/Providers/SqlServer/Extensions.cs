@@ -1,15 +1,16 @@
+using System.Data.Common;
 using DbDapperFactory;
-using Microsoft.Data.Sqlite;
+using Microsoft.Data.SqlClient;
 
-namespace DbDapperFactory;
+namespace DbDapperFactory.Providers;
 
-public static class DapperConnectionFactoryBuilderExtensions
+public static class SqlServerExtensions
 {
-    public static IDapperConnectionFactoryBuilder AddSqlite(
+    public static IDapperConnectionFactoryBuilder AddSqlServer(
         this IDapperConnectionFactoryBuilder builder,
         string name,
         string connectionString,
-        Action<SqliteConnection>? configure = null)
+        Action<SqlConnection>? configure = null)
     {
         ArgumentNullException.ThrowIfNull(builder);
         if (string.IsNullOrWhiteSpace(connectionString))
@@ -19,9 +20,10 @@ public static class DapperConnectionFactoryBuilderExtensions
 
         return builder.Add(name, _ =>
         {
-            var conn = new SqliteConnection(connectionString);
+            var conn = new SqlConnection(connectionString);
             configure?.Invoke(conn);
             return conn;
         });
     }
 }
+

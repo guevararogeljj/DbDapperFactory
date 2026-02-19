@@ -9,7 +9,8 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
     <Version>0.1.1</Version>
-    <Authors>YOUR_NAME</Authors>
+    <Authors>guevararogeljj</Authors>
+    <Description>librería que facilita la integración de múltiples bases de datos en aplicaciones .NET usando Dapper como ORM ligero.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

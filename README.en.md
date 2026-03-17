@@ -2,20 +2,20 @@
 
 [Español](./README.md) | [English](./README.en.md)
 
-Factory y extensiones de DI para crear `DbConnection` nombradas y usarlas con Dapper.
+Factory and DI extensions to create named `DbConnection` instances and use them with Dapper.
 
-## Qué es este paquete
+## What this package is
 
-`DbDapperFactory` es un paquete para aplicaciones .NET que simplifica el registro y la creación de conexiones a múltiples bases de datos cuando trabajas con Dapper.
+`DbDapperFactory` is a package for .NET applications that simplifies registration and creation of connections to multiple databases when you work with Dapper.
 
-Sirve para:
+It helps you:
 
-- registrar varias conexiones por nombre
-- asociar cada conexión a un provider específico
-- resolver conexiones desde inyección de dependencias
-- mantener un punto único para crear `DbConnection`
+- register multiple connections by name
+- associate each connection with a specific provider
+- resolve connections through dependency injection
+- keep a single place responsible for creating `DbConnection`
 
-Actualmente el paquete incluye soporte para:
+The package currently includes support for:
 
 - SQL Server
 - PostgreSQL
@@ -23,9 +23,9 @@ Actualmente el paquete incluye soporte para:
 - SQLite
 - Oracle
 
-## Paquete único
+## Single package
 
-Los paquetes anteriores por provider fueron consolidados en un único paquete:
+The previous provider-specific packages were consolidated into a single package:
 
 - `DbDapperFactory.Core`
 - `DbDapperFactory.SqlServer`
@@ -34,26 +34,26 @@ Los paquetes anteriores por provider fueron consolidados en un único paquete:
 - `DbDapperFactory.Sqlite`
 - `DbDapperFactory.Oracle`
 
-Ahora todo se instala desde:
+Everything is now installed from:
 
 ```bash
 dotnet add package DbDapperFactory
 ```
 
-## Cuándo usarlo
+## When to use it
 
-Este paquete es útil cuando tu aplicación:
+This package is useful when your application:
 
-- consume una o varias bases de datos
-- necesita separar conexiones por nombre, por ejemplo `Main`, `Reporting`, `Legacy`
-- usa Dapper y quieres centralizar la creación de conexiones
-- necesita cambiar entre providers sin reescribir toda la infraestructura de acceso a datos
+- consumes one or more databases
+- needs to separate connections by name, for example `Main`, `Reporting`, `Legacy`
+- uses Dapper and you want to centralize connection creation
+- needs to switch between providers without rewriting all data access infrastructure
 
-## API principal
+## Main API
 
 ### `IDapperConnectionFactory`
 
-La interfaz principal expone un único método:
+The main interface exposes a single method:
 
 ```csharp
 public interface IDapperConnectionFactory
@@ -62,16 +62,16 @@ public interface IDapperConnectionFactory
 }
 ```
 
-Puntos importantes:
+Important points:
 
-- `CreateConnection(name)` devuelve una conexión nueva cada vez
-- la factory no abre la conexión automáticamente
-- tú controlas cuándo llamar a `Open()` o `OpenAsync()`
-- la conexión debe cerrarse y disponerse con `using`
+- `CreateConnection(name)` returns a new connection every time
+- the factory does not open the connection automatically
+- you control when to call `Open()` or `OpenAsync()`
+- the connection should be disposed with `using`
 
-## Providers soportados
+## Supported providers
 
-El enum actual es:
+The current enum is:
 
 ```csharp
 public enum DatabaseProvider
@@ -84,15 +84,15 @@ public enum DatabaseProvider
 }
 ```
 
-## Formas de registro disponibles
+## Available registration options
 
-La librería soporta tres formas principales de registrar conexiones.
+The library supports three main ways to register connections.
 
-### Opción 1: registro fluido por provider
+### Option 1: fluent registration by provider
 
-Usa esta opción cuando quieres definir cada conexión explícitamente en código.
+Use this option when you want to define each connection explicitly in code.
 
-> Importante: los métodos `AddSqlServer`, `AddPostgres`, `AddMySql`, `AddSqlite` y `AddOracle` viven en el namespace `DbDapperFactory.Providers`.
+> Important: `AddSqlServer`, `AddPostgres`, `AddMySql`, `AddSqlite`, and `AddOracle` live in the `DbDapperFactory.Providers` namespace.
 
 ```csharp
 using DbDapperFactory;
@@ -108,7 +108,7 @@ builder.Services
     .AddMySql("Legacy", builder.Configuration.GetConnectionString("Legacy")!);
 ```
 
-También puedes usar los demás providers:
+You can also use the remaining providers:
 
 ```csharp
 builder.Services
@@ -117,9 +117,9 @@ builder.Services
     .AddOracle("ERP", "User Id=user;Password=pass;Data Source=MyOracleDb");
 ```
 
-### Opción 2: registro por nombre + `DatabaseProvider`
+### Option 2: registration by name + `DatabaseProvider`
 
-Usa esta opción cuando quieres leer las cadenas desde `ConnectionStrings` y solo indicar en código qué provider corresponde a cada nombre.
+Use this option when you want to read connection strings from `ConnectionStrings` and only specify in code which provider belongs to each name.
 
 `appsettings.json`:
 
@@ -132,7 +132,7 @@ Usa esta opción cuando quieres leer las cadenas desde `ConnectionStrings` y sol
 }
 ```
 
-Registro:
+Registration:
 
 ```csharp
 using DbDapperFactory;
@@ -150,13 +150,13 @@ services.AddProviderDapperConnectionFactory(
     ("PostgresConnection", DatabaseProvider.Postgres));
 ```
 
-La librería buscará cada cadena en `ConnectionStrings:{Name}` y creará la conexión adecuada según el `DatabaseProvider` indicado.
+The library will look up each string in `ConnectionStrings:{Name}` and create the proper connection based on the specified `DatabaseProvider`.
 
-> `AddMultiDbConnectionFactory` sigue existiendo como alias obsoleto, pero la API recomendada es `AddProviderDapperConnectionFactory`.
+> `AddMultiDbConnectionFactory` still exists as an obsolete alias, but the recommended API is `AddProviderDapperConnectionFactory`.
 
-### Opción 3: registro por sección de configuración
+### Option 3: registration by configuration section
 
-Usa esta opción cuando quieres declarar también el provider dentro de la configuración.
+Use this option when you also want to declare the provider in configuration.
 
 `appsettings.json`:
 
@@ -188,7 +188,7 @@ Usa esta opción cuando quieres declarar también el provider dentro de la confi
 }
 ```
 
-Registro:
+Registration:
 
 ```csharp
 using DbDapperFactory;
@@ -198,15 +198,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDapperConnectionFactory(builder.Configuration);
 ```
 
-La sección usada por defecto es `DbDapperFactory`.
+The default section is `DbDapperFactory`.
 
-Cada conexión puede resolver su cadena de estas formas:
+Each connection can resolve its string in these ways:
 
-- `ConnectionString`: cadena directa
-- `ConnectionStringName`: nombre dentro de `ConnectionStrings`
-- si omites ambas, intenta usar `Name` como clave dentro de `ConnectionStrings`
+- `ConnectionString`: direct string
+- `ConnectionStringName`: name under `ConnectionStrings`
+- if both are omitted, it tries to use `Name` as the key under `ConnectionStrings`
 
-## Ejemplo de uso con Dapper
+## Example usage with Dapper
 
 ```csharp
 using DbDapperFactory;
@@ -257,7 +257,7 @@ public sealed class User
 }
 ```
 
-## Ejemplo con múltiples bases de datos
+## Example with multiple databases
 
 ```csharp
 using DbDapperFactory;
@@ -302,9 +302,9 @@ public sealed class ReportingService
 }
 ```
 
-## Ejemplo rápido del paquete
+## Quick package example
 
-Si quieres una referencia corta de para qué sirve el paquete, este es un caso típico:
+If you want a short reference for what the package is for, this is a typical use case:
 
 ```csharp
 using DbDapperFactory;
@@ -329,21 +329,21 @@ using var sqlConnection = factory.CreateConnection("SqlDb");
 using var pgConnection = factory.CreateConnection("PgDb");
 ```
 
-Ese ejemplo muestra el objetivo del paquete: crear conexiones correctas por nombre y provider sin que tu código consumidor tenga que instanciar manualmente `SqlConnection`, `NpgsqlConnection`, `MySqlConnection`, `SQLiteConnection` u `OracleConnection` en distintos lugares.
+This example shows the package goal: create the correct connection by name and provider without forcing your consumer code to manually instantiate `SqlConnection`, `NpgsqlConnection`, `MySqlConnection`, `SQLiteConnection`, or `OracleConnection` in different places.
 
-## Notas importantes
+## Important notes
 
-- `CreateConnection(name)` crea una instancia nueva cada vez.
-- La factory no abre conexiones automáticamente.
-- La librería funciona bien con Dapper, pero también puede usarse con ADO.NET puro.
-- Si registras conexiones duplicadas por nombre en el builder fluido, la factory lanzará una excepción al resolverlas.
-- Si usas `AddProviderDapperConnectionFactory`, cada nombre debe existir en `ConnectionStrings`.
+- `CreateConnection(name)` creates a new instance every time.
+- The factory does not open connections automatically.
+- The library works well with Dapper, but it can also be used with plain ADO.NET.
+- If you register duplicate connection names with the fluent builder, the factory will throw when resolving them.
+- If you use `AddProviderDapperConnectionFactory`, each name must exist in `ConnectionStrings`.
 
-## Migración desde versiones anteriores
+## Migration from previous versions
 
-Si todavía estabas usando paquetes separados por provider, migra así:
+If you were still using separate packages by provider, migrate like this:
 
-### 1. Remueve los paquetes antiguos
+### 1. Remove old packages
 
 ```bash
 dotnet remove package DbDapperFactory.Core
@@ -354,23 +354,24 @@ dotnet remove package DbDapperFactory.Sqlite
 dotnet remove package DbDapperFactory.Oracle
 ```
 
-### 2. Instala el paquete único
+### 2. Install the single package
 
 ```bash
 dotnet add package DbDapperFactory
 ```
 
-### 3. Ajusta los `using` si usas métodos por provider
+### 3. Update `using` directives if you use provider-specific methods
 
 ```csharp
 using DbDapperFactory;
 using DbDapperFactory.Providers;
 ```
 
-## 👤 Autor
+## 👤 Author
 
 guevararogeljj
 
-## Licencia
+## License
 
-Este proyecto está bajo licencia MIT.
+This project is licensed under the MIT License.
+
